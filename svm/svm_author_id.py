@@ -19,12 +19,44 @@ from email_preprocess import preprocess
 ### labels_train and labels_test are the corresponding item labels
 features_train, features_test, labels_train, labels_test = preprocess()
 
-
+# features_train = features_train[:len(features_train)/100]
+# labels_train = labels_train[:len(labels_train)/100]
 
 
 #########################################################
 ### your code goes here ###
+from sklearn import svm
+from sklearn.metrics import accuracy_score
 
+# the classifier
+clf = svm.SVC(kernel='rbf', C=10000)
+# train
+t0 = time()
+clf.fit(features_train, labels_train)
+
+print "\ntraining time:", round(time()-t0, 3), "s"
+# predict
+t0 = time()
+pred = clf.predict(features_test)
+print "predicting time:", round(time()-t0, 3), "s"
+
+accuracy = accuracy_score(pred, labels_test)
+print '\naccuracy = {0}'.format(accuracy)
 #########################################################
+
+answer = pred[1:1700]
+print(answer)
+LenPred=len(pred)
+
+accum = 0
+#
+for i in range(1, LenPred):
+    if pred[i] == 1:
+        accum = 1 + accum
+
+
+print(accum)
+
+
 
 
