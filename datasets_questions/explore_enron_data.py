@@ -73,3 +73,14 @@ for name in enron_data:
     if person['email_address'] != "NaN":
         num_Emails += 1
 print ('The number of of PPl got payments is', num_Emails)
+
+#
+num_Xxx = 0
+for name in enron_data:
+    person = enron_data[name]
+    person_name = all_names
+    if person['poi']:
+        if person['total_payments'] == "NaN":
+            num_Xxx += 1
+print ('The number of of PPl xxx', num_Xxx)
+
