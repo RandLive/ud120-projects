@@ -30,10 +30,18 @@ plt.show()
 
 ### your code here!  name your classifier object clf if you want the 
 ### visualization code (prettyPicture) to show you the decision boundary
+from sklearn.naive_bayes import GaussianNB
+from sklearn.metrics import accuracy_score
 
+# the classifier
+clf = GaussianNB()
+# train
+clf.fit(features_train, labels_train)
 
-
-
+# predict
+pred = clf.predict(features_test)
+accuracy = accuracy_score(pred, labels_test)
+print '\naccuracy = {0}'.format(accuracy)
 
 
 
