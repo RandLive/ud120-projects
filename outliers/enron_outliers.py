@@ -15,5 +15,26 @@ data = featureFormat(data_dict, features)
 
 ### your code below
 
+for point in data:
+    salary = point[0]
+    bonus = point[1]
+    matplotlib.pyplot.scatter( salary, bonus )
 
+data_dict.pop("TOTAL", 0 )
+
+matplotlib.pyplot.xlabel("salary")
+matplotlib.pyplot.ylabel("bonus")
+matplotlib.pyplot.show()
+
+
+
+for key, value in data_dict.items():
+    if value['bonus'] == data.max():
+        print key
+
+biggest = 0
+for key, value in data_dict.items():
+    if value['bonus'] > biggest:
+        biggest = value['bonus']
+        print key
 

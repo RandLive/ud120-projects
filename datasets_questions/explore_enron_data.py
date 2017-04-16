@@ -79,8 +79,9 @@ num_Xxx = 0
 for name in enron_data:
     person = enron_data[name]
     person_name = all_names
-    if person['poi']:
-        if person['total_payments'] == "NaN":
+    # if person['poi']:
+    #     if person['total_payments'] == "NaN":
+    if person['poi'] and person['total_payments'] == "NaN":
             num_Xxx += 1
-print ('The number of of PPl xxx', num_Xxx)
+print ('The number of of PPl Xxx', num_Xxx)
 
